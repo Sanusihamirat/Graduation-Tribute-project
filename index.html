@@ -7,9 +7,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet" />
   <style>
     /* ── RESET & BASE ── */
-    *,
-    *::before,
-    *::after {
+    *, *::before, *::after {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
@@ -33,9 +31,7 @@
       --font-serif: 'Playfair Display', serif;
       --font-sans: 'Inter', -apple-system, sans-serif;
     }
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
     body {
       font-family: var(--font-sans);
       background: var(--off-white);
@@ -71,9 +67,7 @@
       margin-bottom: 20px;
       color: var(--navy);
     }
-    .section-title .gold {
-      color: var(--gold);
-    }
+    .section-title .gold { color: var(--gold); }
     .section-sub {
       font-size: 1.1rem;
       color: #4a4a6a;
@@ -126,7 +120,7 @@
       transform: translateY(-2px);
     }
 
-    /* ── TOP BAR (Logo + Center name) ── */
+    /* ── TOP BAR ── */
     .top-bar {
       position: fixed;
       top: 0;
@@ -151,10 +145,6 @@
       font-weight: 700;
       letter-spacing: 1px;
     }
-    .top-bar .logo img {
-      height: 40px;
-      width: auto;
-    }
     .top-bar .center-name {
       color: rgba(255, 255, 255, 0.7);
       font-size: 0.85rem;
@@ -176,7 +166,7 @@
       background: linear-gradient(145deg, var(--navy) 0%, #142850 50%, var(--navy-light) 100%);
       overflow: hidden;
       padding: 40px 20px;
-      margin-top: 64px; /* for top bar */
+      margin-top: 64px;
     }
     #hero .bg-glow {
       position: absolute;
@@ -239,9 +229,7 @@
       margin-bottom: 14px;
       font-weight: 700;
     }
-    .hero-content h1 .gold {
-      color: var(--gold);
-    }
+    .hero-content h1 .gold { color: var(--gold); }
     .hero-content .subtitle {
       font-size: clamp(1.1rem, 2vw, 1.4rem);
       opacity: 0.8;
@@ -286,9 +274,7 @@
     }
 
     /* ── LETTER ── */
-    #letter {
-      background: var(--off-white);
-    }
+    #letter { background: var(--off-white); }
     .letter-card {
       max-width: 780px;
       margin: 0 auto;
@@ -299,9 +285,7 @@
       border: 1px solid rgba(255, 255, 255, 0.6);
       transition: var(--transition);
     }
-    .letter-card:hover {
-      box-shadow: var(--shadow-hover);
-    }
+    .letter-card:hover { box-shadow: var(--shadow-hover); }
     .letter-card .ornament {
       font-size: 2.4rem;
       color: var(--gold);
@@ -321,9 +305,7 @@
       color: #2a2a44;
       margin-top: 16px;
     }
-    .letter-card .letter-body p {
-      margin-bottom: 16px;
-    }
+    .letter-card .letter-body p { margin-bottom: 16px; }
     .letter-card .letter-body .signoff {
       font-family: var(--font-serif);
       font-size: 1.2rem;
@@ -332,9 +314,7 @@
     }
 
     /* ── TIMELINE ── */
-    #timeline {
-      background: var(--white);
-    }
+    #timeline { background: var(--white); }
     .timeline {
       position: relative;
       padding: 20px 0;
@@ -364,9 +344,7 @@
       opacity: 1;
       transform: translateY(0);
     }
-    .timeline-item:nth-child(odd) {
-      justify-content: flex-start;
-    }
+    .timeline-item:nth-child(odd) { justify-content: flex-start; }
     .timeline-item .tl-content {
       width: 42%;
       padding: 28px 32px;
@@ -423,10 +401,8 @@
       .timeline-item .tl-dot { left: 20px; transform: translate(-50%, -50%); }
     }
 
-    /* ── GALLERY (static) ── */
-    #gallery {
-      background: var(--off-white);
-    }
+    /* ── GALLERY (improved) ── */
+    #gallery { background: var(--off-white); }
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
@@ -447,14 +423,17 @@
       transform: scale(1.02);
       box-shadow: var(--shadow-hover);
     }
-    .gallery-item img {
+    /* Use background-image with contain to show full image */
+    .gallery-item .gallery-img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      display: block;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
       transition: var(--transition);
+      display: block;
     }
-    .gallery-item:hover img {
+    .gallery-item:hover .gallery-img {
       transform: scale(1.05);
     }
     .gallery-item .gallery-overlay {
@@ -476,10 +455,8 @@
       font-weight: 500;
     }
 
-    /* ── VIDEO SECTION ── */
-    #video-section {
-      background: var(--white);
-    }
+    /* ── VIDEO SECTION (light & furnished) ── */
+    #video-section { background: var(--white); }
     .video-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -487,20 +464,22 @@
       margin-top: 40px;
     }
     .video-card {
-      background: var(--off-white);
+      background: var(--white);
       border-radius: var(--radius-sm);
       overflow: hidden;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
       transition: var(--transition);
+      border: 1px solid rgba(255, 255, 255, 0.4);
     }
     .video-card:hover {
-      transform: translateY(-6px);
+      transform: translateY(-8px);
       box-shadow: var(--shadow-hover);
     }
     .video-card video {
       width: 100%;
       height: auto;
       display: block;
+      background: #000;
       border-bottom: 3px solid var(--gold);
     }
     .video-card .video-caption {
@@ -508,12 +487,18 @@
       font-size: 0.95rem;
       font-weight: 500;
       color: var(--navy);
+      background: var(--white);
+    }
+    .video-card .video-caption small {
+      font-weight: 300;
+      color: #6a6a8a;
+      display: block;
+      margin-top: 4px;
+      font-size: 0.85rem;
     }
 
     /* ── ACHIEVEMENTS ── */
-    #achievements {
-      background: var(--white);
-    }
+    #achievements { background: var(--white); }
     .achievement-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -542,9 +527,7 @@
       transform: scaleX(0);
       transition: var(--transition);
     }
-    .achievement-card:hover::before {
-      transform: scaleX(1);
-    }
+    .achievement-card:hover::before { transform: scaleX(1); }
     .achievement-card:hover {
       transform: translateY(-8px);
       box-shadow: var(--shadow-hover);
@@ -568,9 +551,7 @@
     }
 
     /* ── MESSAGES ── */
-    #messages {
-      background: var(--off-white);
-    }
+    #messages { background: var(--off-white); }
     .messages-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -654,7 +635,7 @@
       font-weight: 300;
     }
 
-    /* ── CELEBRATION (with background image) ── */
+    /* ── CELEBRATION (background image + confetti) ── */
     #celebration {
       background: var(--navy);
       padding: 120px 0 100px;
@@ -671,7 +652,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background-image: url('poster.jpg'); /* graduation celebration */
+      background-image: url('poster.jpg');
       background-size: cover;
       background-position: center;
       opacity: 0.12;
@@ -696,9 +677,7 @@
       font-size: clamp(2.4rem, 5vw, 3.8rem);
       margin-bottom: 16px;
     }
-    #celebration .celeb-content h2 .gold {
-      color: var(--gold);
-    }
+    #celebration .celeb-content h2 .gold { color: var(--gold); }
     #celebration .celeb-content p {
       font-size: 1.1rem;
       opacity: 0.8;
@@ -721,9 +700,7 @@
       border: 1px solid rgba(255, 255, 255, 0.6);
       transition: var(--transition);
     }
-    .final-card:hover {
-      box-shadow: var(--shadow-hover);
-    }
+    .final-card:hover { box-shadow: var(--shadow-hover); }
     .final-card .final-icon {
       font-size: 3.6rem;
       margin-bottom: 16px;
@@ -735,9 +712,7 @@
       color: var(--navy);
       margin-bottom: 16px;
     }
-    .final-card h2 .gold {
-      color: var(--gold);
-    }
+    .final-card h2 .gold { color: var(--gold); }
     .final-card p {
       font-size: 1.05rem;
       line-height: 1.9;
@@ -761,9 +736,7 @@
       font-size: 0.9rem;
       border-top: 1px solid rgba(212, 175, 55, 0.15);
     }
-    .footer .gold {
-      color: var(--gold);
-    }
+    .footer .gold { color: var(--gold); }
 
     /* ── REVEAL ANIMATIONS ── */
     .reveal {
@@ -779,10 +752,10 @@
       opacity: 0;
       transform: scale(0.92);
       transition: all 0.9s cubic-bezier(0.23, 1, 0.32, 1);
-    }
+}
     .reveal-scale.visible {
       opacity: 1;
-  transform: scale(1);
+      transform: scale(1);
     }
 
     /* ── RESPONSIVE ── */
@@ -797,9 +770,26 @@
       .video-grid { grid-template-columns: 1fr; }
       .hero-content h1 { font-size: clamp(2.2rem, 10vw, 3.4rem); }
       #celebration { padding: 80px 0 60px; min-height: 60vh; }
-      .top-bar { padding: 8px 16px; flex-wrap: wrap; gap: 6px; }
+
+      /* top bar: flex with gap */
+      .top-bar {
+        padding: 10px 16px;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: space-between;
+      }
       .top-bar .logo { font-size: 1rem; }
-      .top-bar .center-name { font-size: 0.7rem; }
+      .top-bar .center-name { font-size: 0.75rem; }
+
+      /* increase font sizes on mobile */
+      body { font-size: 1.05rem; }
+      .section-sub { font-size: 1rem; }
+      .letter-card .letter-body { font-size: 1.05rem; }
+      .timeline-item .tl-content .tl-desc { font-size: 1rem; }
+      .message-card .msg-text { font-size: 1rem; }
+      .final-card p { font-size: 1rem; }
+      .video-card .video-caption { font-size: 1rem; }
+      .achievement-card p { font-size: 0.95rem; }
     }
     @media (max-width: 480px) {
       .hero-content .btn-wrap { flex-direction: column; align-items: center; }
@@ -807,16 +797,16 @@
       .gallery-grid { grid-template-columns: repeat(2, 1fr); }
       .achievement-grid { grid-template-columns: 1fr 1fr; }
       .timeline-item .tl-content { padding: 18px 20px; }
+      .top-bar .logo { font-size: 0.9rem; }
+      .top-bar .center-name { font-size: 0.7rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- ═══ TOP BAR (Logo + Center Name) ═══ -->
+  <!-- ═══ TOP BAR ═══ -->
   <header class="top-bar">
     <div class="logo">
-      <!-- Replace src with your actual logo -->
-      <img src="https://via.placeholder.com/40x40?text=Logo" alt="Logo" />
       <span>Unique Tutor Ambassador</span>
     </div>
     <div class="center-name">
@@ -837,9 +827,6 @@
         <span class="gold">Sir Abdulateef Ibikunle Lawal</span>    
       </h1>
       <p class="subtitle">
-        
-      </p>
-      <p class="subtitle">
         Honoring a remarkable educator whose legacy will never be forgotten.
       </p>
       <div class="btn-wrap">
@@ -854,7 +841,7 @@
     </div>
   </section>
 
-  <!-- ═══ LETTER (First Tribute) ═══ -->
+  <!-- ═══ LETTER ═══ -->
   <section id="letter" class="section-padding">
     <div class="container">
       <div class="letter-card reveal">
@@ -872,7 +859,7 @@
     </div>
   </section>
 
-  <!-- ═══ TIMELINE (Revised with 2017 and 2026) ═══ -->
+  <!-- ═══ TIMELINE ═══ -->
   <section id="timeline" class="section-padding">
     <div class="container">
       <div class="text-center reveal">
@@ -884,27 +871,22 @@
       </div>
 
       <div class="timeline">
-        <!-- 2016 -->
         <div class="timeline-item">
           <div class="tl-content">
             <div class="tl-year">2016</div>
             <div class="tl-title">The Beginning of a Purpose</div>
-            <div class="tl-desc">
-You entered the classroom with enthusiasm, ready to make a difference. What began as the first day of teaching soon became the start of a journey that would shape countless young minds for years to come.</div>
+            <div class="tl-desc">You entered the classroom with enthusiasm, ready to make a difference. What began as the first day of teaching soon became the start of a journey that would shape countless young minds for years to come.</div>
           </div>
           <div class="tl-dot"></div>
         </div>
-        <!-- 2017 (NEW) -->
         <div class="timeline-item">
           <div class="tl-content">
             <div class="tl-year">2017</div>
             <div class="tl-title">First Graduating Batch</div>
-            <div class="tl-desc">
-Seeing your first graduating class marked a special milestone. It was a proud reminder that every lesson, every correction, and every word of encouragement had contributed to the success of those you taught.</div>
+            <div class="tl-desc">Seeing your first graduating class marked a special milestone. It was a proud reminder that every lesson, every correction, and every word of encouragement had contributed to the success of those you taught.</div>
           </div>
           <div class="tl-dot"></div>
         </div>
-        <!-- 2018 -->
         <div class="timeline-item">
           <div class="tl-content">
             <div class="tl-year">2018</div>
@@ -913,7 +895,6 @@ Seeing your first graduating class marked a special milestone. It was a proud re
           </div>
           <div class="tl-dot"></div>
         </div>
-        <!-- 2020 -->
         <div class="timeline-item">
           <div class="tl-content">
             <div class="tl-year">2020</div>
@@ -922,23 +903,19 @@ Seeing your first graduating class marked a special milestone. It was a proud re
           </div>
           <div class="tl-dot"></div>
         </div>
-        <!-- 2023 -->
         <div class="timeline-item">
           <div class="tl-content">
             <div class="tl-year">2023</div>
             <div class="tl-title">A Legacy Built in the Classroom</div>
-            <div class="tl-desc">
-Years of teaching had become years of transformation. The knowledge you shared, the discipline you encouraged, and the confidence you nurtured became part of the lives of every student fortunate enough to learn from you.</div>
+            <div class="tl-desc">Years of teaching had become years of transformation. The knowledge you shared, the discipline you encouraged, and the confidence you nurtured became part of the lives of every student fortunate enough to learn from you.</div>
           </div>
           <div class="tl-dot"></div>
         </div>
-        <!-- 2026 -->
         <div class="timeline-item">
           <div class="tl-content">
             <div class="tl-year">2026</div>
             <div class="tl-title">🎓 Our Turn To Say Thank You</div>
-            <div class="tl-desc">
-As the Class of 2026, we proudly join the many students whose lives have been touched by your teaching. This graduation is not only a celebration of our achievements but also a celebration of the teacher who helped us believe in ourselves.</div>
+            <div class="tl-desc">As the Class of 2026, we proudly join the many students whose lives have been touched by your teaching. This graduation is not only a celebration of our achievements but also a celebration of the teacher who helped us believe in ourselves.</div>
           </div>
           <div class="tl-dot"></div>
         </div>
@@ -946,7 +923,7 @@ As the Class of 2026, we proudly join the many students whose lives have been to
     </div>
   </section>
 
-  <!-- ═══ GALLERY (Static Images) ═══ -->
+  <!-- ═══ GALLERY (improved) ═══ -->
   <section id="gallery" class="section-padding">
     <div class="container">
       <div class="text-center reveal">
@@ -957,73 +934,73 @@ As the Class of 2026, we proudly join the many students whose lives have been to
 
       <div class="gallery-grid">
         <div class="gallery-item">
-          <img src="one.jpg" alt="Graduation celebration" />
+          <div class="gallery-img" style="background-image: url('one.jpg');"></div>
           <div class="gallery-overlay"><span>One Family</span></div>
         </div>
         <div class="gallery-item">
-          <img src="together.jpg" alt="Classroom learning" />
+          <div class="gallery-img" style="background-image: url('together.jpg');"></div>
           <div class="gallery-overlay"><span>Together We Stand</span></div>
         </div>
         <div class="gallery-item">
-          <img src="smiles.jpg" alt="Teacher and students" />
+          <div class="gallery-img" style="background-image: url('smiles.jpg');"></div>
           <div class="gallery-overlay"><span>Bright smiles</span></div>
         </div>
         <div class="gallery-item">
-          <img src="seniors.jpg" alt="Award ceremony" />
+          <div class="gallery-img" style="background-image: url('seniors.jpg');"></div>
           <div class="gallery-overlay"><span>Scholars portrait</span></div>
         </div>
         <div class="gallery-item">
-          <img src="bond.jpg" alt="Group study" />
+          <div class="gallery-img" style="background-image: url('bond.jpg');"></div>
           <div class="gallery-overlay"><span>Bonds That Last</span></div>
         </div>
         <div class="gallery-item">
-          <img src="light.jpg" alt="Group study" />
+          <div class="gallery-img" style="background-image: url('light.jpg');"></div>
           <div class="gallery-overlay"><span>Our Guiding Light 🌟</span></div>
         </div>
         <div class="gallery-item">
-          <img src="poster.jpg" alt="Community project" />
-          <div class="gallery-overlay"><span>Unique Tutorial Ambassador 2026 </span></div>
+          <div class="gallery-img" style="background-image: url('poster.jpg');"></div>
+          <div class="gallery-overlay"><span>Unique Tutorial Ambassador 2026</span></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ VIDEO SECTION (Static <video> tags) ═══ -->
+  <!-- ═══ VIDEO SECTION (light & furnished) ═══ -->
   <section id="video-section" class="section-padding">
     <div class="container">
       <div class="text-center reveal">
         <span class="section-label">Our Story</span>
         <h2 class="section-title">Moments <span class="gold">in Motion</span></h2>
-        <p class="section-sub mx-auto">Every clips tells a story worth rememberig. Relive it all.</p>
+        <p class="section-sub mx-auto">Every clip tells a story worth remembering. Relive it all.</p>
       </div>
 
       <div class="video-grid">
         <div class="video-card reveal">
-          <video controls poster="">
+          <video controls poster="first3.png">
             <source src="first.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          <div class="video-caption">A Journey Together</div>
+          <div class="video-caption">A Journey Together </div>
         </div>
         <div class="video-card reveal">
           <video controls poster="face.jpg">
             <source src="video2.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          <div class="video-caption">Cheers to Success</div>
+          <div class="video-caption">Cheers to Success </div>
         </div>
         <div class="video-card reveal">
-          <video controls poster="poster.jpg">
-            <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4" />
+          <video controls poster="first3.png">
+            <source src="myvid.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          <div class="video-caption">Class of 2026</div>
+          <div class="video-caption">Class of 2026 </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ═══ ACHIEVEMENTS (Revised) ═══ -->
+  <!-- ═══ ACHIEVEMENTS ═══ -->
   <section id="achievements" class="section-padding">
     <div class="container">
       <div class="text-center reveal">
@@ -1057,7 +1034,7 @@ As the Class of 2026, we proudly join the many students whose lives have been to
     </div>
   </section>
 
-  <!-- ═══ MESSAGES (Fixed typos) ═══ -->
+  <!-- ═══ MESSAGES ═══ -->
   <section id="messages" class="section-padding">
     <div class="container">
       <div class="text-center reveal">
@@ -1087,7 +1064,7 @@ As the Class of 2026, we proudly join the many students whose lives have been to
     </div>
   </section>
 
-  <!-- ═══ QUOTES (Wisdom) ═══ -->
+  <!-- ═══ QUOTES ═══ -->
   <section id="quotes">
     <div class="container">
       <div class="text-center reveal" style="color:var(--white);">
@@ -1121,7 +1098,7 @@ As the Class of 2026, we proudly join the many students whose lives have been to
     </div>
   </section>
 
-  <!-- ═══ CELEBRATION (with background image) ═══ -->
+  <!-- ═══ CELEBRATION (background image + confetti falling) ═══ -->
   <section id="celebration">
     <canvas id="celebration-canvas" class="celebration-canvas"></canvas>
     <div class="celeb-content">
@@ -1130,7 +1107,7 @@ As the Class of 2026, we proudly join the many students whose lives have been to
     </div>
   </section>
 
-  <!-- ═══ FINAL TRIBUTE (Second Tribute – with Mummy) ═══ -->
+  <!-- ═══ FINAL TRIBUTE ═══ -->
   <section id="final">
     <div class="container">
       <div class="final-card reveal">
@@ -1153,14 +1130,14 @@ As the Class of 2026, we proudly join the many students whose lives have been to
           Though this chapter closes, the lessons, values, and memories you have given us will remain with us forever. Thank you for being more than a teacher—you became family.
         </p>
         <div class="closing-grace">
-          With endless love, gratitude, and sincere respect,<br />
+          With endless love, gratitude, and sincere respect<br />
           Your Graduating Students
         </div>
       </div>
 
       <br><br><br>
       <div style="text-align:center; font-size:0.95rem; color:var(--navy);">
-        <strong>Tribute Websites thoughtfully designed and developed by <span class="gold">Sanusi Kehinde Hamirat</span>.</strong>
+        <strong>Tribute Websites thoughtfuly designed and developed by <span class="gold">Sanusi Kehinde Hamirat</span>.</strong>
       </div>
     </div>
   </section>
@@ -1174,7 +1151,7 @@ As the Class of 2026, we proudly join the many students whose lives have been to
   JAVASCRIPT (Particles, Timeline, Reveal, Celebration)
   ════════════════════════════════════════════════════ -->
   <script>
-//── 1. Hero Particles ──
+    //── 1. Hero Particles ──
     (function initParticles() {
       const canvas = document.getElementById('particles-canvas');
       const ctx = canvas.getContext('2d');
@@ -1248,7 +1225,7 @@ As the Class of 2026, we proudly join the many students whose lives have been to
       els.forEach(el => observer.observe(el));
     })();
 
-    // ── 4. Celebration Confetti + Caps + Fireworks ──
+    // ── 4. Celebration Confetti + Caps + Fireworks (constantly falling) ──
     (function initCelebration() {
       const canvas = document.getElementById('celebration-canvas');
       const ctx = canvas.getContext('2d');
@@ -1263,28 +1240,30 @@ As the Class of 2026, we proudly join the many students whose lives have been to
       resize();
 
       const colors = ['#d4af37', '#f5d77b', '#ffffff', '#c9a84c', '#f0ede8', '#ffd966'];
-      for (let i = 0; i < 120; i++) {
+      // Confetti pieces
+      for (let i = 0; i < 160; i++) {
         particles.push({
           x: Math.random() * w,
           y: Math.random() * h - h,
           size: Math.random() * 7 + 3,
-          speedY: Math.random() * 2 + 1.2,
-          speedX: (Math.random() - 0.5) * 1.5,
+          speedY: Math.random() * 2.5 + 1.5,
+          speedX: (Math.random() - 0.5) * 1.8,
           color: colors[Math.floor(Math.random() * colors.length)],
           rotation: Math.random() * 360,
-          rotSpeed: (Math.random() - 0.5) * 0.04,
-          wobble: Math.random() * 0.05,
+          rotSpeed: (Math.random() - 0.5) * 0.06,
+          wobble: Math.random() * 0.06,
           phase: Math.random() * Math.PI * 2,
         });
       }
 
-      for (let i = 0; i < 14; i++) {
+      // Graduation caps
+      for (let i = 0; i < 20; i++) {
         caps.push({
           x: Math.random() * w,
-          y: Math.random() * h - h * 0.4,
-          size: 28 + Math.random() * 24,
-          speedY: 0.3 + Math.random() * 0.6,
-          wobble: 0.02 + Math.random() * 0.03,
+          y: Math.random() * h - h * 0.5,
+          size: 30 + Math.random() * 28,
+          speedY: 0.4 + Math.random() * 0.8,
+          wobble: 0.02 + Math.random() * 0.04,
           phase: Math.random() * Math.PI * 2,
           opacity: 0.5 + Math.random() * 0.4,
         });
@@ -1342,6 +1321,7 @@ As the Class of 2026, we proudly join the many students whose lives have been to
         if (!running) return;
         ctx.clearRect(0, 0, w, h);
 
+        // Update and draw confetti
         particles.forEach(p => {
           p.y += p.speedY;
           p.x += p.speedX + Math.sin(p.phase) * p.wobble;
@@ -1350,11 +1330,10 @@ As the Class of 2026, we proudly join the many students whose lives have been to
           if (p.y > h + 30) {
             p.y = -30;
             p.x = Math.random() * w;
-            p.speedY = Math.random() * 2 + 1.2;
+            p.speedY = Math.random() * 2.5 + 1.5;
             p.color = colors[Math.floor(Math.random() * colors.length)];
           }
         });
-
         particles.forEach(p => {
           ctx.save();
           ctx.translate(p.x, p.y);
@@ -1365,6 +1344,7 @@ As the Class of 2026, we proudly join the many students whose lives have been to
           ctx.restore();
         });
 
+        // Update and draw caps
         caps.forEach(c => {
           c.y += c.speedY;
           c.x += Math.sin(c.phase) * c.wobble * 2;
@@ -1380,12 +1360,12 @@ As the Class of 2026, we proudly join the many students whose lives have been to
           ctx.fillText('🎓', c.x, c.y);
         });
 
+        // Fireworks
         fireworkTimer++;
         if (fireworkTimer > 40 + Math.random() * 60) {
           fireworks.push(new Firework());
           fireworkTimer = 0;
         }
-
         fireworks = fireworks.filter(f => f.alive);
         fireworks.forEach(f => { f.update(); f.draw(); });
 
@@ -1395,6 +1375,7 @@ As the Class of 2026, we proudly join the many students whose lives have been to
 
       animateCelebration();
 
+      // Pause animation when section is not visible
       const section = document.getElementById('celebration');
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => { running = entry.isIntersecting; });
@@ -1416,4 +1397,3 @@ As the Class of 2026, we proudly join the many students whose lives have been to
   </script>
 </body>
 </html>
-      
